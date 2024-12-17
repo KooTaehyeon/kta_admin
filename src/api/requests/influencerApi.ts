@@ -1,15 +1,16 @@
-
 import axios from 'axios';
-
+import axiosInstance from '../client';
 export const getInfluencerApplies = async () => {
-  const response = await axios.get('http://localhost:4000/influencer/apply/all');
+  const response = await axiosInstance.get('/influencer/apply/all');
   return response.data;
 };
 
 export const approveApplication = async (id: number) => {
-  await axios.put(`http://localhost:4000/influencer/apply/${id}/approve`);
+  await axiosInstance.put(`/influencer/apply/${id}/approve`);
 };
 
 export const rejectApplication = async (id: number, reason: string) => {
-  await axios.put(`http://localhost:4000/influencer/apply/${id}/reject`, { reason });
+  await axiosInstance.put(`/influencer/apply/${id}/reject`, {
+    reason,
+  });
 };
