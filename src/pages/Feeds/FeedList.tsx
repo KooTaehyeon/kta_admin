@@ -50,13 +50,16 @@ const PostList: React.FC = () => {
   };
 
   // 검색어에 따라 feeds를 필터링
+  // 검색어에 따라 feeds를 필터링
   const filteredFeeds = feeds.filter((feed) => {
     const contentMatch = feed.content
-      ?.toLowerCase()
-      .includes(searchTerm.toLowerCase());
+      ? feed.content.toLowerCase().includes(searchTerm.toLowerCase())
+      : false;
+
     const influencerMatch = feed.influencer
-      .toLowerCase()
-      .includes(searchTerm.toLowerCase());
+      ? feed.influencer.toLowerCase().includes(searchTerm.toLowerCase())
+      : false;
+
     return contentMatch || influencerMatch;
   });
 
@@ -171,7 +174,7 @@ const PostList: React.FC = () => {
   ];
 
   return (
-    <div style={{ padding: "0 20px" }}>
+    <div style={{ padding: '0 20px' }}>
       <h1 style={{ marginBottom: 16 }}>게시글 관리</h1>
 
       {/* 검색 입력창 */}
