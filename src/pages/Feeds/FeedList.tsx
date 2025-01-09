@@ -50,7 +50,6 @@ const PostList: React.FC = () => {
   };
 
   // 검색어에 따라 feeds를 필터링
-  // 검색어에 따라 feeds를 필터링
   const filteredFeeds = feeds.filter((feed) => {
     const contentMatch = feed.content
       ? feed.content.toLowerCase().includes(searchTerm.toLowerCase())
